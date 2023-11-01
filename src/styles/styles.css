@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --background: #121212;
+  --foreground: #232323;
+
+  --primary: firebrick;
+  /* --secondary: ; */
+}
+
+body {
+  width: 100vw;
+  height: 100%;
+
+  font-family: sans-serif;
+  font-size: 1.3rem;
+  color: white;
+  background-color: var(--background);
+}
