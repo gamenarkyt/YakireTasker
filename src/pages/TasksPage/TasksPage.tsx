@@ -8,7 +8,7 @@ export const TasksPage = () => {
   if (!tasks) return "loading...";
   return (
     <div>
-      <Typography>Tasker</Typography>
+      <Typography>Tasker test</Typography>
       <button onClick={() => addTask(12, "1221")}>add task</button>
       <button onClick={() => deleteTask(12)}>delete 12 task</button>
       {tasks.map((task) => {
