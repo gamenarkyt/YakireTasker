@@ -1,5 +1,8 @@
+import { Dayjs } from "dayjs";
+
 export interface ITask {
-  id: number;
+  id: string;
   text: string;
   checked: boolean;
+  date: Dayjs;
 }

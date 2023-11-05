@@ -1,0 +1,38 @@
+.fab {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary);
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+
+  .iconplus {
+    width: 1.8rem;
+    height: 1.8rem;
+    user-select: none;
+
+    color: white;
+  }
+
+  &:active {
+    transform: scale(80%);
+    filter: brightness(120%);
+  }
+}
+
+@media (pointer: coarse) {
+  .fab {
+    cursor: auto;
+  }
+}

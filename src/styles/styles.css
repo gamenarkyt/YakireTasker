@@ -8,7 +8,13 @@ body {
   --background: #121212;
   --foreground: #232323;
 
+  --text: white;
   --primary: firebrick;
+  --secondary: rgb(0, 170, 255);
+  --secondary: rgb(0, 170, 255);
+  --gray: #b6b6b6;
+
+  --border-radius: 8px;
   /* --secondary: ; */
 }
 

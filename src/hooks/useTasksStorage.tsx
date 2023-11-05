@@ -1,31 +1,22 @@
 import { ITask } from "@/types/task.interface";
-import { useEffect, useState } from "react";
+import { useLocalStorage } from "@uidotdev/usehooks";
+import dayjs from "dayjs";
+import { nanoid } from "nanoid";
 
-export const useTasksStorage = (key: string, initialValue: any) => {
-  const [tasks, setTasks] = useState<ITask[]>(() => {
-    try {
-      const item = localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.log("usestate error");
-      console.log(error);
-    }
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(tasks));
-  }, [tasks]);
-
-  // TASK API
-  const addTask = (id: number, text: string) => {
-    setTasks([...tasks, { id: id, text: text, checked: false }]);
+export const useTasksStorage = () => {
+  const [tasks, setTasks] = useLocalStorage<ITask[]>("tasks", [
+    {
+      id: nanoid(),
+      text: "First task completed!",
+      checked: true,
+      date: dayjs(),
+    },
+  ]);
+  const addTask = (text: string) => {
+    setTasks([
+      ...tasks,
+      { id: nanoid(), text: text, checked: false, date: dayjs() },
+    ]);
   };
-
-  const deleteTask = (id: number) => {
-    const nextTasksState = tasks.filter((task) => task.id !== id);
-    console.log(nextTasksState);
-
-    setTasks(nextTasksState);
-  };
-  return { tasks, setTasks, addTask, deleteTask };
+  return { tasks, setTasks, addTask };
 };
